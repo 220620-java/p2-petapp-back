@@ -1,0 +1,9 @@
+version: 0.2
+
+phases:
+  pre-build:
+    commands:
+      - aws s3 cp s3://petapp2-build-resources/application.properties ./src/main/resources
+  build:
+    commands:
+      - mvn clean && mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=220620-java_p2-petapp-back
