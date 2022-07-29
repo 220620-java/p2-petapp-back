@@ -1,7 +1,7 @@
 version: 0.2
 
 phases:
-  pre-build:
+  pre_build:
     commands:
       - aws s3 cp s3://petapp2-build-resources/application.properties ./src/main/resources
   build:
