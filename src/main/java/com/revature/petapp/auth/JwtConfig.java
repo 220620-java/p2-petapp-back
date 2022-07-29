@@ -14,11 +14,7 @@ import io.jsonwebtoken.security.Keys;
 
 @Component
 public class JwtConfig {
-	// Value allows you to use SpEL, but also
-	// it allows you to get properties from the application.properties/yml
-	// or environment variables
-	@Value("${jwt.secret}")
-	private String salt;
+	private String salt = System.getenv("JWT_SECRET");
 	
 	// example of using Value with SpEL (Spring expression language)
 	// to calculate the number of milliseconds in a day. Spring
