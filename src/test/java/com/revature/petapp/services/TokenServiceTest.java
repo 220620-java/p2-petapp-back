@@ -2,6 +2,8 @@ package com.revature.petapp.services;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Date;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -42,9 +44,15 @@ public class TokenServiceTest {
 	
 	@Test
 	public void validateTokenSuccess() {
+		long now = System.currentTimeMillis();
+		
 		String validToken = Jwts.builder()
-				.setId("1")
+				.setId(String.valueOf(1))
 				.setSubject("test")
+				.claim("role", "User")
+				.setIssuer("petapp")
+				.setIssuedAt(new Date(now))
+				.setExpiration(new Date(now + jwtConfig.getExpiration()))
 				.signWith(jwtConfig.getSigningKey())
 				.compact();
 		
