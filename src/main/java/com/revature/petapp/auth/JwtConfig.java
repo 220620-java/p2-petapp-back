@@ -16,11 +16,7 @@ import io.jsonwebtoken.security.Keys;
 public class JwtConfig {
 	private String salt = System.getenv("JWT_SECRET");
 	
-	// example of using Value with SpEL (Spring expression language)
-	// to calculate the number of milliseconds in a day. Spring
-	// will then set this value for us
-	@Value("#{24*60*60*1000}")
-	private int expiration;
+	private int expiration = 86400000;
 	
 	// i'm using RS256 because it's widely supported. this algorithm
 	// requires a 540-character (2048 bit) key.
