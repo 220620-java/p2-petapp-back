@@ -19,7 +19,7 @@ public class PetAppBootApplication {
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/**")
 					.allowedMethods("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS")
-					.allowedOrigins("null")
+					.allowedOrigins("http://73.214.92.208:4200")
 					.allowedHeaders("*")
 					.exposedHeaders("Auth")
 					.allowCredentials(false);
